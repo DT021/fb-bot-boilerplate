@@ -43,4 +43,5 @@ class NLPEngine(object):
         :param label:
         :return: string
         """
-        return answers_patterns[label]
+        #return answers_patterns[label]
+        return label
