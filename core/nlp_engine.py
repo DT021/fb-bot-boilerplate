@@ -16,4 +16,23 @@ class NLPEngine(object):
         :param message: string
         :return: string
         """
-        return "Hello World!"
+        label = self.what_do_you_mean(message)
+        return self.what_i_mean(label)
+
+    def what_do_you_mean(self, message):
+        """
+        This method map a string into an action
+        :param message: string
+        :return: label
+        """
+        label = "label"
+        return label
+
+    def what_i_mean(self, label):
+        """
+        This method is in charge to map a label into an natural language answer
+        :param label:
+        :return: string
+        """
+        answer = {"label": "This is my answer!"}
+        return answer[label]

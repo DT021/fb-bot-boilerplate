@@ -10,11 +10,14 @@ from core.nlp_engine import NLPEngine
 app = Flask(__name__)
 nlp_engine = NLPEngine()
 
+OK = "OK"
+
+
 @app.route('/', methods=['GET'])
 def verify():
     # when the endpoint is registered as a webhook, it must echo back
     # the 'hub.challenge' value it receives in the query arguments
-    message = "Hello world"
+    message = OK
     code = 200
     if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
         message, code = request.args["hub.challenge"], 200
@@ -53,7 +56,7 @@ def webhook():
                 if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
                     pass
 
-    return "ok", 200
+    return OK, 200
 
 
 def send_message(recipient_id, message_text):
@@ -74,10 +77,10 @@ def send_message(recipient_id, message_text):
             "text": message_text
         }
     })
-    r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
-    if r.status_code != 200:
-        log(r.status_code)
-        log(r.text)
+    answare = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
+    if answare.status_code != 200:
+        log(answare.status_code)
+        log(answare.text)
 
 
 def log(msg, *args, **kwargs):  # simple wrapper for logging to stdout on heroku
