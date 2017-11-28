@@ -6,6 +6,7 @@ from core.utils.nlp_utils import map_nlp_config_to_dic, concat_nlp_config
 
 
 class NLPEngine(object):
+    """Here goes your code!"""
     def __init__(self):
         pass
 
