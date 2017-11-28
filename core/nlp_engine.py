@@ -1,3 +1,10 @@
+from fuzzywuzzy import process
+
+from core.nlp_config.questions import questions_patterns
+from core.nlp_config.answers import answers_patterns
+from core.utils.nlp_utils import map_nlp_config_to_dic, concat_nlp_config
+
+
 class NLPEngine(object):
     def __init__(self):
         pass
@@ -25,7 +32,9 @@ class NLPEngine(object):
         :param message: string
         :return: label
         """
-        label = "label"
+        label_dic = map_nlp_config_to_dic(questions_patterns)
+        question = process.extractOne(message, concat_nlp_config(questions_patterns))
+        label = label_dic[question[0]]
         return label
 
     def what_i_mean(self, label):
@@ -34,5 +43,4 @@ class NLPEngine(object):
         :param label:
         :return: string
         """
-        answer = {"label": "This is my answer!"}
-        return answer[label]
+        return answers_patterns[label]
