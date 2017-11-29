@@ -1,6 +1,6 @@
 # Facebook Messenger Bot
 
-This simple python template is an extension a previous repo of this tutorial [tutorial that uses this repository](https://blog.hartleybrody.com/fb-messenger-bot/) of @HarleyBrody.
+This simple python template is an extension a previous repo of this [tutorial](https://blog.hartleybrody.com/fb-messenger-bot/) of @HarleyBrody.
 I simply extended it a little bit with quick and dirty FAQ bot.
 You can insert your questions and you answers in these files
 
