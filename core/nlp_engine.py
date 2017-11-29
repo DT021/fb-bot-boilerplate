@@ -6,9 +6,7 @@ from core.utils.nlp_utils import map_nlp_config_to_dic, concat_nlp_config
 
 
 class NLPEngine(object):
-    """Here goes your code!"""
-    def __init__(self):
-        pass
+    """Your code goes here."""
 
     def echo(self, message):
         """
@@ -24,10 +22,10 @@ class NLPEngine(object):
         :param message: string
         :return: string
         """
-        label = self.what_do_you_mean(message)
-        return self.what_i_mean(label)
+        label = self.human_input(message)
+        return self.bot_output(label)
 
-    def what_do_you_mean(self, message):
+    def human_input(self, message):
         """
         This method map a string into an action
         :param message: string
@@ -38,7 +36,7 @@ class NLPEngine(object):
         label = label_dic[question[0]]
         return label
 
-    def what_i_mean(self, label):
+    def bot_output(self, label):
         """
         This method is in charge to map a label into an natural language answer
         :param label:
